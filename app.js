@@ -1,11 +1,29 @@
-const express = require('express')
-const app = express()
-const port = 3000
+import 'dotenv/config';
+import express from 'express';
+
+const app = express();
+
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+  return res.send('Received a GET HTTP method');
+});
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.get('/users',(req,res)=>{
+  return res.send('No Users Found until this point');
+});
+
+app.post('/', (req, res) => {
+  return res.send('Received a POST HTTP method');
+});
+
+app.put('/', (req, res) => {
+  return res.send('Received a PUT HTTP method');
+});
+
+app.delete('/', (req, res) => {
+  return res.send('Received a DELETE HTTP method');
+});
+
+app.listen(3000, () =>
+  console.log(`Example app listening on port ${3000}!`),
+);
