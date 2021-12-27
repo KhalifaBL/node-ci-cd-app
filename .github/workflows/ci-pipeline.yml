@@ -45,7 +45,7 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-  login:
+  Deploy to Fargate:
     runs-on: ubuntu-latest
     name: Login to AWS 
     needs: build_and_push
@@ -59,14 +59,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-  
-  deploy:
-    runs-on: ubuntu-latest
-    name: Deploy to Fargate 
-    needs: login
-    steps:
-      - name: Check Out Repo 
-        uses: actions/checkout@v2
+
       - name: Render Amazon ECS task definition
         id: render-web-container
         uses: aws-actions/amazon-ecs-render-task-definition@v1
