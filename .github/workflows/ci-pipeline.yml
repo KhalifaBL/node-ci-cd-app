@@ -45,7 +45,8 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-  Deploy to Fargate:
+  
+  deployToFargate:
     runs-on: ubuntu-latest
     name: Login to AWS 
     needs: build_and_push
