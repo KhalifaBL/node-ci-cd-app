@@ -11,6 +11,9 @@ app.get('/', (req, res) => {
 app.get('/users',(req,res)=>{
   return res.send('No Users Found until this point');
 });
+app.get('/devops',(req,res)=>{
+  return res.send('Best Course So far!!!');
+});
 
 app.post('/', (req, res) => {
   return res.send('Received a POST HTTP method');
