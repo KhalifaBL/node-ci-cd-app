@@ -64,8 +64,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy to Fargate 
     needs: login
-
-        - name: Render Amazon ECS task definition
+    steps:
+      - name: Render Amazon ECS task definition
         id: render-web-container
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
